@@ -77,6 +77,11 @@ public class CardsActivity extends AppCompatActivity {
         drawCards.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Retrofit retrofit = new Retrofit.Builder()
+                        .baseUrl(cardApiService.BASE_URL)
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .build();
+
                 int numOfCardsSelected = Integer.parseInt(numOfCards.getText().toString());
                 if (numOfCardsSelected < 1) {
                     numOfCards.setError("not a sufficient number of cards");
