@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="edit_text">5dp</dimen>
+    <dimen name="text_view">38dp</dimen>
+    <dimen name="text_view_w">190dp</dimen>
+    <dimen name="shuffle_dimens">150dp</dimen>
+    <dimen name="view_dimens">6dp</dimen>
+    <dimen name="layout_margin">4dp</dimen>
+    <dimen name="edit_text_dimens">210dp</dimen>
+    <dimen name="et_d_two">38dp</dimen>
+    <dimen name="draw_dimens">150dp</dimen>
+    <dimen name="draw_dimens_margin">10dp</dimen>
+    <dimen name="draw_config">38dp</dimen>
+    <dimen name="layout_margin_first">4dp</dimen>
+</resources>

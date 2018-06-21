@@ -10,19 +10,19 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="4dp"
+        android:layout_margin="@dimen/layout_margin_first"
         android:orientation="horizontal">
 
         <TextView
             android:id="@+id/cards_remaining"
-            android:layout_width="190dp"
-            android:layout_height="38dp"
+            android:layout_width="@dimen/text_view_w"
+            android:layout_height="@dimen/text_view"
             android:layout_weight="2"
             android:text="@string/cards_remaining" />
 
         <Button
             android:id="@+id/shuffle_button"
-            android:layout_width="150dp"
+            android:layout_width="@dimen/shuffle_dimens"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/shuffle_new_deck" />
@@ -31,7 +31,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="6dp"
+        android:layout_height="@dimen/view_dimens"
         android:background="@color/colorPrimaryDark">
 
     </View>
@@ -40,23 +40,23 @@
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="4dp"
+        android:layout_margin="@dimen/layout_margin"
         android:orientation="horizontal">
 
         <EditText
             android:id="@+id/how_many_cards"
-            android:layout_width="210dp"
-            android:layout_height="38dp"
+            android:layout_width="@dimen/edit_text_dimens"
+            android:layout_height="@dimen/et_d_two"
             android:hint="@string/how_many_cards"
             android:inputType="number"
-            android:paddingTop="5dp" />
+            android:paddingTop="@dimen/edit_text" />
 
         <Button
 
             android:id="@+id/draw_button"
-            android:layout_width="150dp"
-            android:layout_height="38dp"
-            android:layout_marginLeft="10dp"
+            android:layout_width="@dimen/draw_dimens"
+            android:layout_height="@dimen/draw_config"
+            android:layout_marginLeft="@dimen/draw_dimens_margin"
             android:text="@string/draw_cards" />
 
     </LinearLayout>
