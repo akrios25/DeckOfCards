@@ -6,22 +6,25 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.example.c4q.deckofcards.CardsActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="4dp">
+        android:layout_margin="4dp"
+        android:orientation="horizontal">
+
         <TextView
             android:id="@+id/cards_remaining"
             android:layout_width="190dp"
             android:layout_height="38dp"
             android:layout_weight="2"
             android:text="@string/cards_remaining" />
+
         <Button
             android:id="@+id/shuffle_button"
             android:layout_width="150dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="@string/shuffle_new_deck" />
 
     </LinearLayout>
@@ -37,17 +40,16 @@
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="4dp">
+        android:layout_margin="4dp"
+        android:orientation="horizontal">
 
         <EditText
             android:id="@+id/how_many_cards"
             android:layout_width="210dp"
             android:layout_height="38dp"
-            android:paddingTop="5dp"
-            android:inputType="number"
             android:hint="@string/how_many_cards"
-            />
+            android:inputType="number"
+            android:paddingTop="5dp" />
 
         <Button
 
@@ -64,18 +66,6 @@
         android:layout_height="match_parent">
 
     </android.support.v7.widget.RecyclerView>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 </LinearLayout>
