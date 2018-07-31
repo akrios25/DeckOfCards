@@ -34,9 +34,9 @@ public class CardsActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private String shuffle;
     private int remaining;
-    private CardsAdapter cardsAdapter;
-    private Retrofit retrofit;
     private CardApiService cardApiService;
+
+    List<Cards> cardHolder = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +45,6 @@ public class CardsActivity extends AppCompatActivity {
         setViews();
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
-
 
 
 
@@ -75,8 +74,13 @@ public class CardsActivity extends AppCompatActivity {
             }
         });
         drawCards.setOnClickListener(new View.OnClickListener() {
+
+
             @Override
             public void onClick(View view) {
+
+                int cardsDrawn = Integer.parseInt(numOfCards.getText().toString());
+                remainingCards.setText(remaining - cardsDrawn + " Cards Remain");
                 Retrofit retrofit = new Retrofit.Builder()
                         .baseUrl(cardApiService.BASE_URL)
                         .addConverterFactory(GsonConverterFactory.create())
@@ -94,8 +98,11 @@ public class CardsActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(Call<CardApiResponse> call, Response<CardApiResponse> response) {
                             List<Cards> newCards = response.body().getCards();
-                            CardsAdapter adapter = new CardsAdapter(newCards);
-                            recyclerView.setAdapter(adapter);
+                            cardHolder.addAll(newCards);
+                            cardAdapter(cardHolder);
+
+
+
                         }
 
                         @Override
@@ -106,6 +113,11 @@ public class CardsActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void cardAdapter(List<Cards> cardList) {
+        CardsAdapter adapter = new CardsAdapter(cardList);
+        recyclerView.setAdapter(adapter);
     }
 
     private void setViews() {

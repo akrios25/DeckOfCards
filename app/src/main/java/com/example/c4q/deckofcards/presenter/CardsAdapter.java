@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.c4q.deckofcards.R;
 import com.example.c4q.deckofcards.model.Cards;
@@ -19,6 +20,8 @@ import java.util.List;
 
 public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.CardViewHolder>{
     List<Cards> cardsList;
+    Cards cards;
+
 
     public CardsAdapter(List<Cards> cardsList){
         this.cardsList = cardsList;
@@ -33,7 +36,7 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.CardViewHold
 
     @Override
     public void onBindViewHolder(@NonNull CardsAdapter.CardViewHolder holder, int position) {
-        Cards cards = cardsList.get(position);
+        cards = cardsList.get(position);
         holder.onBind(cards);
 
     }
@@ -45,17 +48,30 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.CardViewHold
     public void addCards(List<Cards> cards){
         cardsList.addAll(cards);
     }
-    public static class CardViewHolder extends RecyclerView.ViewHolder {
-        private ImageView cardImageView;
 
-        public CardViewHolder(View itemview){
+    public class CardViewHolder extends RecyclerView.ViewHolder {
+        private ImageView cardImageView;
+        Cards cards;
+
+        public CardViewHolder(final View itemview){
             super(itemview);
             cardImageView = itemview.findViewById(R.id.card_image);
+            itemview.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(view.getContext(),cards.getValue() + " of " + cards.getSuit()  , Toast.LENGTH_SHORT).show();
+                }
+            });
         }
         public void onBind(Cards cards){
+            this.cards = cards;
             Picasso.with(itemView.getContext())
                     .load(cards.getImage())
                     .into(cardImageView);
+
         }
+
+
+
     }
 }
