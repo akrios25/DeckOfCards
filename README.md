@@ -1,4 +1,3 @@
 # DeckOfCards
 An app that draws cards and shuffles the deck.
-The recyclerview on the onResponse was giving me trouble, the app crashes as soon as you attempt to draw cards. I worked through the entire app but unfortunately this one problem is
-holding me back.
+I didn't get to complete the toasts letting the user know what card was selected, however networking is working, and both buttons achieve desired functionality.
